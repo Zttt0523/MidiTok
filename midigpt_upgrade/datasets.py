@@ -7,7 +7,6 @@ that uses REMI tokenization, preserving pitch + duration + position + bar struct
 
 from __future__ import annotations
 
-from itertools import chain
 from pathlib import Path
 from typing import Sequence
 
@@ -15,11 +14,9 @@ import torch
 from torch.utils.data import Dataset
 
 from miditok import REMI, TokenizerConfig
-from miditok.constants import MIDI_FILES_EXTENSIONS
 
 
 def build_tokenizer(
-    midi_paths: Sequence[Path],
     num_velocities: int = 16,
     use_chords: bool = True,
     use_tempos: bool = True,
